@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+.app-bar {  
+  padding: 10px;
+}
+.logo {
+  display: block;
+  height: 50px;
+}
