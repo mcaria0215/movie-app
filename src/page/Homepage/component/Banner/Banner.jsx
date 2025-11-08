@@ -20,11 +20,11 @@ const Banner = () => {
 
   return (
     <div className='banner' style={{
-      backgroundImage: `url("https://media.themoviedb.org/t/p/w1280_and_h720_bestv2${data?.results[0].poster_path}")`
+      backgroundImage: `url("https://media.themoviedb.org/t/p/w1280_and_h720_bestv2${data?.results[19].poster_path}")`
     }}>
       <div className='banner-text-area'>
-        <h1>{data?.results[0].title}</h1>
-        <p>{data?.results[0].overview}</p>
+        <h1>{data?.results[19].title}</h1>
+        <p>{data?.results[19].overview}</p>
       </div>
     </div>
   )
