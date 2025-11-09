@@ -23,3 +23,10 @@
 .banner-text-area > * {
   z-index: 10;
 }
+
+@media screen and (max-width: 768px) {
+  /* 태블릿 및 모바일 */
+  .banner-text-area {
+    width: 100%;
+  }
+}

@@ -4,8 +4,7 @@ import Alert from '@mui/material/Alert';
 import './Banner.style.css'
 
 const Banner = () => {
-  const { data, isLoading, isError, error } = usePopularMoviesQuery();
-  console.log(data);  
+  const { data, isLoading, isError, error } = usePopularMoviesQuery();  
 
   if(isLoading){
     return <h1>Loading...</h1>

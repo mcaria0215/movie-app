@@ -1,0 +1,61 @@
+.movie-card {  
+  width: 420px;   
+  height: 600px;
+  background-size: cover;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.movie-card:hover {
+  transform: scale(1.3) translateZ(20px);
+  z-index: 2;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  color: #fff;
+  overflow-wrap: break-word;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  padding: 20px;  
+  text-align: center;
+}
+.overlay:hover {
+  opacity: 1;
+}
+
+.title {
+  font-size: 1.5rem; /* 제목 글자 크기 */
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  /* 제목이 너무 길 경우 잘라내기 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 최대 3줄까지만 표시 */
+  -webkit-box-orient: vertical;
+}
+
+.genre {
+  display: flex;
+  flex-wrap: wrap; /* 장르 칩들이 공간이 부족하면 자동으로 줄바꿈 */
+  justify-content: center; /* 중앙 정렬 */
+  gap: 5px; /* 칩 사이 간격 */
+  margin-bottom: 20px;
+}
+
+.movie-info {  
+  width: 100%;
+  font-size: 0.9rem;
+  padding-top: 10px;  
+}
+.movie-info > div {
+  margin-bottom: 5px;
+}
