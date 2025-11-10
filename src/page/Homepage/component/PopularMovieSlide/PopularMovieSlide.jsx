@@ -1,10 +1,6 @@
 import React from 'react'
 import { usePopularMoviesQuery } from '../../../../hook/usePopularMovies'
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import MovieCard from '../MovieCard/MovieCard';
-import './PopularMovieSlide.style.css'
-import { responsive } from '../../../../config/carouselResponsive';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
   
 const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
@@ -20,20 +16,12 @@ const PopularMovieSlide = () => {
     )
   }
 
-  const popularResults = data?.results || [];
+  const results = data?.results || [];
 
   return (    
-    <div className='movie-list'>
-      <h2>Popular Movies</h2>
-        <Carousel
-          infinite={true}
-          centerMod={true}
-          itemClass='carousel-container'
-          responsive={responsive}
-        >
-          {popularResults.map((movie)=><MovieCard movie={movie} key={movie.id} />)}
-        </Carousel>
-    </div>    
+    <>
+      <MovieSlider title='Popular Movies' movies={results} />
+    </>    
   )
 }
 

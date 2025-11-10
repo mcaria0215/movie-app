@@ -1,12 +1,11 @@
-.movie-list {
-  padding: 20px;
-}
-.movie-list h2 {
-  font-size: 2em;
-}
-
 .carousel-container {  
   display: flex;
   align-items: center;
   height: 640px;
+}
+
+@media (max-width:480px) {
+  .carousel-container {  
+    height: 480px;
+  }
 }

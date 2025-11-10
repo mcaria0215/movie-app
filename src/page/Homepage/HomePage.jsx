@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div>
       <Banner />     
-      <UpcomingMovieSlide />
+      <UpcomingMovieSlide />      
       <PopularMovieSlide /> 
       <TopRatedMovieSlide />      
     </div>
