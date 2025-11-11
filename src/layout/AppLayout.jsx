@@ -1,11 +1,30 @@
-import React from 'react'
-import { AppBar, Toolbar, Typography, Button, IconButton, TextField, InputAdornment } from '@mui/material';
+import React, { useState } from 'react'
+import { AppBar, Toolbar, Button, IconButton, TextField, InputAdornment } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search'; // 💡 Search 아이콘 import
+import SearchIcon from '@mui/icons-material/Search';
 import { Box } from '@mui/system';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
+
+  const searchKeyword = (e)=>{
+    if(e.type==='submit'){
+      e.preventDefault();
+    }
+    if(keyword.trim()){
+      navigate(`/movies?q=${keyword.trim()}`);     
+    }    
+  }
+
+  const handleOnKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      searchKeyword(e);
+    }
+  }
+
+
   return (
     <>    
       <AppBar position='static'>
@@ -25,38 +44,34 @@ const AppLayout = () => {
           
           <Box sx={{ flexGrow: 1 }} />          
           
-          <TextField
-            variant="outlined" 
-            size="small"
-            placeholder="Search..."
-            sx={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
-              borderRadius: 1,
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'transparent' },
-                '&:hover fieldset': { borderColor: 'transparent' },
-              }
-            }}
-            InputProps={{
-              startAdornment: ( 
-                <InputAdornment position="start">
-                  <SearchIcon sx={{ color: 'white' }} />
-                </InputAdornment>
-              ),
-            }}
-          />
-
-          <IconButton
-            size="large"
-            edge="end"
-            color="inherit"
-            aria-label="menu"
-            sx={{ ml: 2, display: { md: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-
+          <Box component="form" onSubmit={searchKeyword} sx={{ display: 'flex', alignItems: 'center' }}>
+            <TextField
+              variant="outlined" 
+              size="small"
+              placeholder="Search..."
+              value={keyword}
+              onChange={(e)=>setKeyword(e.target.value)}
+              onKeyPress={handleOnKeyPress}
+              InputProps={{
+                startAdornment: ( 
+                  <InputAdornment position="start">
+                    <IconButton onClick={searchKeyword} size="small" disableRipple>
+                      <SearchIcon sx={{ color: 'white' }} />
+                    </IconButton>
+                  </InputAdornment>                
+                ),
+              }}
+            />
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              aria-label="menu"
+              sx={{ ml: 2, display: { md: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
       <Outlet />
