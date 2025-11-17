@@ -27,7 +27,7 @@ const AppLayout = () => {
 
   return (
     <>    
-      <AppBar position='static'>
+      <AppBar position='relative'sx={{zIndex:1000}}>
         <Toolbar className='app-bar'>
           <Box>
             <Link to={'/'}><img className='logo' src="https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjRfMTkx/MDAxNzE2NTE4NTk1Njc4.IJooNf7sLpKzVMWQLrWhbxSGTa8LuiYcWOcNp-bs4nMg.Yw7sL8JT81d574mscesLq_G2keAilWjZusWU1YkQ-Zgg.PNG/Netflix_Logo_RGB.png?type=w800" alt="" /></Link>

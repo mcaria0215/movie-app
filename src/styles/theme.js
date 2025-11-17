@@ -5,18 +5,29 @@ const theme = createTheme({
   palette: { 
     mode: 'dark',   
     primary: {
-      main: '#FF0000', // **넷플릭스 스타일을 위한 진한 빨간색**
-      light: '#FF3333', // 필요에 따라 light, dark, contrastText도 정의 가능
+      main: '#FF0000',
+      light: '#FF3333',
       dark: '#CC0000',
     },
     secondary: {
-      main: '#FFFFFF', // 흰색을 secondary로 설정
+      main: '#FFFFFF',
     },
     text: {
       primary: '#FFFFFF',       
     }
   },
   // Typography, components 등 다른 설정도 여기서 추가 가능
+  typography: {
+    h3: {      
+      fontSize: '3rem',    
+      '@media (max-width:900px)': {
+        fontSize: '2.5rem',
+      },
+      '@media (max-width:600px)': {
+        fontSize: '1.8rem',
+      },
+    },
+  },
   components: {
     MuiAppBar: {
       styleOverrides: {        
